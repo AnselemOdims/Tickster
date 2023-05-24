@@ -1,4 +1,4 @@
-import {CustomError} from './'
+import CustomError  from './customError';
 
 class DatabaseConnectionError extends CustomError {
     statusCode = 500;

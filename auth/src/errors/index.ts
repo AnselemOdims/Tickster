@@ -1,9 +1,11 @@
 import RequestValidationError from "./RequestValidationError";
 import DatabaseConnectionError from "./DatabaseConnectionError";
-import CustomError from './customError'
+import CustomError from './customError';
+import NotFound from './NotFound';
 
 export {
     RequestValidationError,
     DatabaseConnectionError,
-    CustomError
+    CustomError,
+    NotFound
 }
