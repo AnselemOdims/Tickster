@@ -4,7 +4,7 @@ import { validationResult } from 'express-validator';
 const signUp = (req: Request, res: Response) => {
     const errors = validationResult(req)
     if(!errors.isEmpty()) {
-        return res.status(400).send(errors.array()[0])
+        throw new Error(errors.array())
     }
     const { name, email, password } = req.body
 

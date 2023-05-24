@@ -1,9 +1,5 @@
 import { body } from 'express-validator';
 
-// const validateSignUp = (err, req, res, next) => {
-    
-// }
-
  export const validateSignUp = [
     body('name')
         .trim()

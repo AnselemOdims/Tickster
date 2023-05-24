@@ -5,7 +5,7 @@ import {
     signOut,
     currentUser
 } from './controllers'
-import { validateSignUp } from './middleware'
+import { validateSignUp } from './utils/validate'
 
 const router = express.Router();
 
