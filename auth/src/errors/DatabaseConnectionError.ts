@@ -1,7 +1,16 @@
-class DatabaseConnectionError extends Error {
-    constructor() {
+import {CustomError} from './'
+
+class DatabaseConnectionError extends CustomError {
+    statusCode = 500;
+    constructor(public error: string) {
         super();
         Object.setPrototypeOf(this, DatabaseConnectionError.prototype);
+    }
+
+    serializeErrors() {
+        return [
+            { message: this.error }
+        ]
     }
 }
 
