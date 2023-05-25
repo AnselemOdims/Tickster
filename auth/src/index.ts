@@ -1,9 +1,10 @@
 import express from 'express';
+import mongoose from 'mongoose'
+import 'express-async-errors';
+
 import router from './route';
 import errorHandler from './middleware/errorHandler';
 import { NotFound } from './errors';
-import mongoose from 'mongoose'
-require('express-async-errors')
 
 const app = express()
 

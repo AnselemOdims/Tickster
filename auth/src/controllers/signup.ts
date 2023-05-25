@@ -8,12 +8,13 @@ const signUp = async (req: Request, res: Response) => {
     if(!errors.isEmpty()) {
         throw new RequestValidationError(errors.array())
     }
+
     const { name, email, password } = req.body
+
     const existingUser = await User.findOne({ email })
     if(existingUser) {
         throw new BadRequest('Email already in use')
     }
-    
     const user = User.build({ name, email, password })
     await user.save()
     res.status(201).send(user)
