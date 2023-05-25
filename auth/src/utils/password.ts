@@ -6,7 +6,7 @@ class Password {
     static async hashPwd(pwd: string) {
         const salt = randomBytes(16).toString('hex')
         const buf = await scryptAsync(pwd, salt, 64) as Buffer;
-        return `${buf.toString('hex')}.${salt}}`
+        return `${buf.toString('hex')}.${salt}`
     }
 
     static async comparePwd(storedPwd: string, pwd: string) {
