@@ -1,8 +1,6 @@
 import jwt from 'jsonwebtoken';
 const generateJWT = (payload: any) => {
-  return jwt.sign(payload, 'abcd', {
-    expiresIn: '1d',
-  });
+  return jwt.sign(payload, process.env.JWT_KEY!);
 };
 
 const decodeJWT = (token: string) => {
