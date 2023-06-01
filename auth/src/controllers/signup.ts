@@ -1,14 +1,8 @@
 import { Request, Response } from 'express';
-import { validationResult } from 'express-validator';
-import { RequestValidationError, BadRequest } from '../errors';
 import User from '../models/user'
-import { generateJWT, decodeJWT } from '../utils/jwt'
+import { generateJWT } from '../utils/jwt'
 
 const signUp = async (req: Request, res: Response) => {
-    const errors = validationResult(req)
-    if(!errors.isEmpty()) {
-        throw new RequestValidationError(errors.array())
-    }
 
     const { name, email, password } = req.body
 

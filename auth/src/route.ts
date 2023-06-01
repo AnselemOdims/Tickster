@@ -5,12 +5,13 @@ import {
     signOut,
     currentUser
 } from './controllers'
-import { validateSignUp } from './utils/validate'
+import { validateSignUp, validateSignIn } from './utils/validate'
+import { validateReq } from './middleware/validateReq';
 
 const router = express.Router();
 
-router.post('/signup', validateSignUp, signUp)
-router.post('/signin', signIn)
+router.post('/signup', validateSignUp, validateReq, signUp)
+router.post('/signin', validateSignIn, validateReq, signIn)
 router.post('/signout', signOut)
 router.get('/currentUser', currentUser)
 
