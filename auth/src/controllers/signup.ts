@@ -1,6 +1,7 @@
 import { Request, Response } from 'express';
+import { BadRequest } from '../errors';
 import User from '../models/user'
-import { generateJWT } from '../utils/jwt'
+import { generateJWT, decodeJWT } from '../utils/jwt'
 
 const signUp = async (req: Request, res: Response) => {
 
