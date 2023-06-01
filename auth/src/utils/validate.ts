@@ -14,3 +14,14 @@ import { body } from 'express-validator';
         .isLength({ min: 6 })
         .withMessage('Password must be at least 6 characters long')
 ]
+
+export const validateSignIn = [
+    body('email')
+        .isEmail()
+        .normalizeEmail()
+        .withMessage('Email must be valid'),
+    body('password')
+        .trim()
+        .notEmpty()
+        .withMessage('Password must be provided')
+]
