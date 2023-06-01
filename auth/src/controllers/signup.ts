@@ -20,8 +20,8 @@ const signUp = async (req: Request, res: Response) => {
     await user.save()
     const token = generateJWT({ id: user.id, email: user.email })
     req.session = { jwt: token }
-    
-    res.status(201).send(user)
+
+    res.status(201).send({ name: user.name, email: user.email, id: user._id})
 }
 
 export default signUp
