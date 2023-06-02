@@ -4,7 +4,7 @@ const generateJWT = (payload: any) => {
 };
 
 const decodeJWT = (token: string) => {
-  return jwt.verify(token, 'abcd');
+  return jwt.verify(token, process.env.JWT_KEY!);
 };
 
 export { generateJWT, decodeJWT };
