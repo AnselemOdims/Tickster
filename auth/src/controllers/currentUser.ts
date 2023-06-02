@@ -1,14 +1,7 @@
 import { Request, Response } from 'express';
-import { decodeJWT } from '../utils/jwt';
 
 const currentUser = (req: Request, res: Response) => {
-    const token = req.session?.jwt
-    if(!token) {
-       return res.status(400).send({ currentUser: null })
-    }
-    console.log(req.session)
-    const payload = decodeJWT(token);
-    res.status(200).send({ currentUser: payload })
+    res.status(200).send({ currentUser: req.currentUser || null })
 }
 
 export default currentUser
