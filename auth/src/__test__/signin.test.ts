@@ -27,4 +27,21 @@ it('should return 400 for an unregistered user', async () => {
     .expect(400);
 });
 
+it('should return 400 for an invalid password', async () => {
+    await request(app)
+        .post('/api/users/signup')
+        .send({
+        name: 'John Doe',
+        email: 'johndoe@localhost.com',
+        password: 'password'
+        })
+        .expect(201);
 
+    await request(app)
+        .post('/api/users/signin')
+        .send({
+            email: 'johndoe@localhost.com',
+            password: 'pass'
+        })
+        .expect(400)
+})
