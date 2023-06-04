@@ -13,3 +13,12 @@ it('should return details of currently logged in user', async () => {
 
   expect(res.body.currentUser.email).toEqual('johndoe@localhost.com');
 });
+
+it('should return null for an unauthenticated user', async () => {
+  const res = await request(app)
+    .get('/api/users/currentUser')
+    .send()
+    .expect(200);
+
+  expect(res.body.currentUser).toEqual(null);
+});
