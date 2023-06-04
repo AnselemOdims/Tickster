@@ -15,6 +15,6 @@ const router = express.Router();
 router.post('/signup', validateSignUp, validateReq, signUp)
 router.post('/signin', validateSignIn, validateReq, signIn)
 router.get('/signout', signOut)
-router.get('/currentUser', currentUserMiddleware, requireAuth, currentUser)
+router.get('/currentUser', currentUserMiddleware, currentUser)
 
 export default router;
