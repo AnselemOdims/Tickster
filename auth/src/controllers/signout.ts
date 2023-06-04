@@ -3,7 +3,7 @@ import { Request, Response } from 'express';
 const signOut = (req: Request, res: Response) => {
     req.session = null;
 
-    res.send({})
+    res.status(200).send({})
 }
 
 export default signOut
