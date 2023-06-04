@@ -1,16 +1,9 @@
 import request from 'supertest';
 import { app } from '../app';
+import { authUser } from '../test/authUser';
 
 it('should return details of currently logged in user', async () => {
-  const signUpRes = await request(app)
-    .post('/api/users/signup')
-    .send({
-      name: 'John Doe',
-      email: 'johndoe@localhost.com',
-      password: 'password',
-    })
-    .expect(201);
-  const cookie = signUpRes.get('Set-Cookie');
+  const cookie = await authUser();
 
   const res = await request(app)
     .get('/api/users/currentUser')
