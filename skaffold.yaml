@@ -13,5 +13,13 @@ build:
         dockerfile: Dockerfile
       sync:
         manual:
-          - src: "src/**/*.ts"
+          - src: 'src/**/*.ts'
+            dest: .
+    - image: anselem77/client
+      context: client
+      docker:
+        dockerfile: Dockerfile
+      sync:
+        manual:
+          - src: '**/*.ts'
             dest: .
